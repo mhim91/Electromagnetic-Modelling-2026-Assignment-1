@@ -30,56 +30,12 @@ parameters.mO = mO;
 parameters.p = p;
 parameters.H = H;
 
-%-------------------------------------------------------------------------
-%------------- STEP 2 (Plot Chapman layer and Frequency curve ) ----------
-%-------------------------------------------------------------------------
 
-%Set plot range
-z_range = H*linspace(0,20,1000);
-f = figure(1)
-
-%Generate Chapman curve
-electron_density_profile = electron_density(parameters, z_range);
-electron_density_maximum = max(electron_density_profile);
-electron_density_profile_label = "Electron density / " + sprintf('%.2e',electron_density_maximum) + "/m^-3"
-
-plot(electron_density_profile / electron_density_maximum, ...
-    z_range / parameters.H,  ...
-    DisplayName = electron_density_profile_label);
-
-
-%Check code
-
-theoretical_z_div_H_at_nmax = log(parameters.aa * parameters.n0 * parameters.H);
-theoretical_electron_density_maximum = sqrt(parameters.ai*parameters.I0 / (exp(1)*parameters.ar*parameters.aa*parameters.H));
-
-disp("Layer peak at " + theoretical_z_div_H_at_nmax*H/1000 + " km with value " + electron_density_maximum)
-
-%Generate plasma frequency graph
-
-electron_plasma_frequency_profile = electron_plasma_frequency(parameters, z_range);
-[maxval, index_of_max] = max(electron_plasma_frequency_profile);
-altitude_of_plasma_max_frequency = z_range(index_of_max);
-electron_plasma_frequency_max = maxval;
-
-hold on;
-plot(electron_plasma_frequency_profile / electron_plasma_frequency_max, ...
-    z_range / parameters.H, ...
-    DisplayName = "Plasma Frequency / " + round(electron_plasma_frequency_max / 10^6, 2) + " MHz");
-
-title("Chapman layer")
-ylabel('Altitude in H-units')
-xlabel("Magnitude relative to maximum")
-legend show;
-
-hold off
-
-ax = gca;
-ax.FontName = 'Computer Modern'; % or 'CMU Serif' depending on your system
-ax.FontSize = 10;
-grid on;
-
-
-%------------- STEP 3 (Simplified model on paper) ----------
-
-%------------- STEP 4 (Simplified model on paper) ----------
+set(groot, 'DefaultFigureUnits', 'centimeters');
+set(groot, 'DefaultFigurePosition', [5, 5, 8,10]); % [left, bottom, width, height]
+set(groot, 'DefaultAxesFontName', 'Computer Modern'); %default LaTeX font
+set(groot, 'DefaultAxesFontSize', 10); %default LaTeX fontsize
+set(groot, 'DefaultLineLineWidth', 1.5);
+set(groot, 'DefaultAxesXGrid', 'on');
+set(groot, 'DefaultAxesYGrid', 'on');
+set(groot, 'DefaultAxesZGrid', 'on');

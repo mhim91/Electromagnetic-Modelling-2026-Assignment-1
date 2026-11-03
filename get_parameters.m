@@ -1,5 +1,3 @@
-
-%Code provided by KTH course administrators
 function  [aa ai ar I0 n0 T f alpha] = get_parameters(birthdate)
 
 rng(birthdate);

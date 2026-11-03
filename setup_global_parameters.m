@@ -32,7 +32,7 @@ parameters.H = H;
 
 
 set(groot, 'DefaultFigureUnits', 'centimeters');
-set(groot, 'DefaultFigurePosition', [5, 5, 8,10]); % [left, bottom, width, height]
+set(groot, 'DefaultFigurePosition', [10, 10, 8,10]); % [left, bottom, width, height]
 set(groot, 'DefaultAxesFontName', 'Computer Modern'); %default LaTeX font
 set(groot, 'DefaultAxesFontSize', 10); %default LaTeX fontsize
 set(groot, 'DefaultLineLineWidth', 1.5);

@@ -1,7 +1,7 @@
 
 
 %Set plot range
-z_range = H*linspace(0,20,1000);
+z_range = parameters.H*linspace(0,20,1000);
 
 
 %Generate Chapman Electron Density Profile data
@@ -17,12 +17,13 @@ electron_plasma_frequency_profile = electron_plasma_frequency(parameters, z_rang
 altitude_of_plasma_max_frequency = z_range(index_of_max);
 electron_plasma_frequency_max = maxval;
 
-%Generate double-y-axis-layer
+%Generate double y-axis graps for
+%density and frequency
 
 dual_fig = figure(2);
 yyaxis left
 plot(z_range/1000,electron_density_profile, ...
-    DisplayName = "Electron density", ...
+    DisplayName = "Plasma density", ...
     Color='black', LineStyle ='-');
 ylabel("Electron density (m^{-3})")
 
@@ -42,3 +43,10 @@ ax.YColor = 'black';
 
 title("Chapman layer")
 legend show;
+
+disp("-----SCRIPT LOG------")
+disp("Data computed from the model series data");
+disp("Altitude of maximal (electron) density: " + altitude_of_density_max / 1000 + " km");
+disp("Magnitude of maximal density " + electron_density_maximum + " m^{-3}");
+disp("Altitude of maximal plasma frequency: " + altitude_of_plasma_max_frequency / 1000 + " km");
+disp("Maximum plasma frequency: " + electron_plasma_frequency_max / 1e6 + " MHz");

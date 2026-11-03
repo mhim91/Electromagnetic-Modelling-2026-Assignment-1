@@ -1,4 +1,6 @@
 %A different comment on top
+%THIS IS CODE FROM KTH THAT HAS NOT BEEN TOUCHED 
+%EXCEPT FOR COMMENTING OUT THE NONFUNCTIONING RANDOM CODDE ON LINE ~28
 function  [aa ai ar I0 n0 T f alpha] = get_parameters(birthdate)
 
 rng(birthdate);

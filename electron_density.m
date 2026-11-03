@@ -1,4 +1,4 @@
 %assumed the parameters are global and loaded
 function  ne = electron_density(parameters, z)
-    ne = sqrt((parameters.ai/parameters.ar)*parameters.n0*parameters.I0.*exp(-z/parameters.H).*exp(-parameters.H*parameters.aa * parameters.n0 .*exp(-z/parameters.H)));
+    ne = sqrt((parameters.ai/parameters.ar)*parameters.n0*parameters.I0.*exp(-z/parameters.H).*exp(-parameters.H*parameters.aa * parameters.n0 .*exp(-z/parameters.H))); %comment
     return;

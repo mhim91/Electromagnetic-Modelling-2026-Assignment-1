@@ -44,7 +44,10 @@ ax.YColor = 'black';
 title("Chapman layer")
 legend show;
 
-disp("-----SCRIPT LOG------")
+disp(" ")
+disp('====================================');
+disp('===  script_chapman_layer_graph  ===');
+disp('====================================');
 disp("Data computed from the model series data");
 disp("Altitude of maximal (electron) density: " + altitude_of_density_max / 1000 + " km");
 disp("Magnitude of maximal density " + electron_density_maximum + " m^{-3}");

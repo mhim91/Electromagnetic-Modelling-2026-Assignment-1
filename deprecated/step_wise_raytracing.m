@@ -18,7 +18,7 @@ for k = 2:N
     x(k) = x(k-1) + (z(k) - z(k-1)) * sinalfa(k-1) / sqrt(1 - sinalfa(k)^2);
 end
     
-figure(1)
+figure(8)
     
 plot(x,z,   Color = 'black')
 axis equal

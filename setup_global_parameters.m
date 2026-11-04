@@ -11,6 +11,10 @@ mO = 16*mp;          %Oxygen atomic mass
 p = 1e5;             %Surface pressure
 H = kB*T/(mO*g);     %Scale height in Barometric law
 
+alt = H*log(aa * n0 * H); %altitude of density maximum
+nmax = sqrt(ai*I0/(exp(1)*ar*aa*H)); %maximal plasma density
+
+
 parameters = struct(); %Define a parameters struct for all parameters
 parameters.aa = aa;
 parameters.ai = ai;
@@ -29,12 +33,29 @@ parameters.mp = mp;
 parameters.mO = mO;
 parameters.p = p;
 parameters.H = H;
+parameters.alt = alt;
+parameters.nmax = nmax;
+
+disp(' ');
+disp('====================================');
+disp('======  Auxilliary parameters  ======');
+disp('====================================');
+disp('');
+str = ['alt = ' num2str(alt,'%.2e') '    (m)'];
+disp(str);
+str = ['nmax = ' num2str(nmax,'%.2e') '    (m^2)'];
+disp(str);
+
+disp(' ');
+
+%note to self: compute peak parameters here as well
+
 
 
 set(groot, 'DefaultFigureUnits', 'centimeters');
-set(groot, 'DefaultFigurePosition', [10, 10, 8,10]); % [left, bottom, width, height]
+set(groot, 'DefaultFigurePosition', [10, 10, 6,6]); % [left, bottom, width, height]
 set(groot, 'DefaultAxesFontName', 'Computer Modern'); %default LaTeX font
-set(groot, 'DefaultAxesFontSize', 10); %default LaTeX fontsize
+set(groot, 'DefaultAxesFontSize', 9); %default LaTeX fontsize
 set(groot, 'DefaultLineLineWidth', 1.5);
 set(groot, 'DefaultAxesXGrid', 'on');
 set(groot, 'DefaultAxesYGrid', 'on');
